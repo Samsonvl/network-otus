@@ -40,25 +40,27 @@
 
 ## Настройка VTP <a name="VTP"></a>
 ### Настройте S2 в качестве сервера VTP <a name="VTP2"></a>
-* Switch(config)#**vtp domain CCNA**
-* Domain name already set to CCNA.
-* Switch(config)#**vtp mode server**
-* Device mode already VTP SERVER.
-* Switch(config)#**vtp password cisco**
-* Password already set to cisco
-* Switch#**sh vtp status**
-* VTP Version                     : 2
-* Configuration Revision          : 8
-* Maximum VLANs supported locally : 250
-* Number of existing VLANs        : 9
-* VTP Operating Mode              : Server
-* VTP Domain Name                 : CCNA
-* VTP Pruning Mode                : Disabled
-* VTP V2 Mode                     : Disabled
-* VTP Traps Generation            : Disabled
-* MD5 digest                      : 0x16 0x68 0xF2 0x0B 0x67 0x31 0x81 0x1B 
-* Configuration last modified by 0.0.0.0 at 3-1-93 00:40:06
-* Local updater ID is 0.0.0.0 (no valid interface found)
+```
+ Switch(config)#vtp domain CCNA
+ Domain name already set to CCNA.
+ Switch(config)#vtp mode server
+ Device mode already VTP SERVER.
+ Switch(config)#vtp password cisco
+ Password already set to cisco
+ Switch#sh vtp status
+ VTP Version                     : 2
+ Configuration Revision          : 8
+ Maximum VLANs supported locally : 250
+ Number of existing VLANs        : 9
+ VTP Operating Mode              : Server
+ VTP Domain Name                 : CCNA
+ VTP Pruning Mode                : Disabled
+ VTP V2 Mode                     : Disabled
+ VTP Traps Generation            : Disabled
+ MD5 digest                      : 0x16 0x68 0xF2 0x0B 0x67 0x31 0x81 0x1B 
+ Configuration last modified by 0.0.0.0 at 3-1-93 00:40:06
+ Local updater ID is 0.0.0.0 (no valid interface found)
+```
 ### Настроим S1 и S3 в качестве клиентов VTP <a name="VTP1"></a>
 * Switch(config)#**vtp domain CCNA**
 * Domain name already set to CCNA.
@@ -210,7 +212,29 @@
 | S1 F0/6              | VLAN 10   | 192.168.99.1                                  |
 | S2 F0/18             | VLAN 20   | 192.168.99.2                                  |
 | S3 F0/18             | VLAN 10   | 192.168.99.3                                  |
-
-* S1(config)# interface f0/6
-* S1(config-if)# switchport mode access
-* S1(config-if)# switchport access vlan 10 
+#### На коммутаторе S1 переведите порт F0/15 в режим доступа и назначьте его сети VLAN 10.
+* S1(config)#**interface f0/15**
+* S1(config-if)# **switchport mode access**
+* S1(config-if)# **switchport access vlan 10**
+#### На коммутаторе S2 переведите порт F0/15 в режим доступа и назначьте его сети VLAN 20.
+* S2(config)#**interface f0/15**
+* S2(config-if)# **switchport mode access**
+* S2(config-if)# **switchport access vlan 20**
+#### На коммутаторе S3 переведите порт F0/15 в режим доступа и назначьте его сети VLAN 10.
+* S2(config)#**interface f0/15**
+* S2(config-if)# **switchport mode access**
+* S2(config-if)# **switchport access vlan 10**
+## Настроим IP-адреса на коммутаторах
+#### На коммутаторе S1 назначьте IP-адрес интерфейсу SVI для сети VLAN 99 в соответствии с таблицей адресации и активируйем интерфейс.
+* S1(config)# **interface vlan 99**
+* S1(config-if)# **ip address 192.168.99.1 255.255.255.0**
+* S1(config-fi)# **no shutdown**
+##### На коммутаторе S2 назначьте IP-адрес интерфейсу SVI для сети VLAN 99 в соответствии с таблицей адресации и активируйем интерфейс.
+* S2(config)# **interface vlan 99**
+* S2(config-if)# **ip address 192.168.99.2 255.255.255.0**
+* S2(config-fi)# **no shutdown**
+#### На коммутаторе S3 назначьте IP-адрес интерфейсу SVI для сети VLAN 99 в соответствии с таблицей адресации и активируйем интерфейс.
+* S3(config)# **interface vlan 99**
+* S3(config-if)# **ip address 192.168.99.3 255.255.255.0**
+* S3(config-fi)# **no shutdown**
+## Проверим наличие сквозного соединения
