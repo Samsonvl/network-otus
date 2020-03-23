@@ -237,4 +237,60 @@
 * S3(config)# **interface vlan 99**
 * S3(config-if)# **ip address 192.168.99.3 255.255.255.0**
 * S3(config-fi)# **no shutdown**
-## Проверим наличие сквозного соединения
+### Проверим наличие сквозного соединения
+
+## Настройка сети VLAN расширенного диапазона
+### Переведем  VTP на коммутаторе S1 в прозрачный режим
+#### Переведем VTP на коммутаторе S1 в прозрачный режим.
+```
+S1(config)# vtp mode transparent
+Setting device to VTP Transparent mode for VLANS.
+S1(config)# exit
+```
+#### Проверьте режим VTP на коммутаторе S1.
+```
+S1# show vtp status
+VTP Version capable             : 1 to 3
+VTP version running             : 1
+VTP Domain Name                 : CCNA
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : 0cd9.96e2.3d00
+Configuration last modified by 0.0.0.0 at 3-1-93 02:36:11
+
+Feature VLAN:
+--------------
+VTP Operating Mode                : Transparent
+Maximum VLANs supported locally   : 255
+Number of existing VLANs          : 9
+Configuration Revision            : 0
+MD5 digest                        : 0xB2 0x9A 0x11 0x5B 0xBF 0x2E 0xBF 0xAA
+                                    0x31 0x18 0xFF 0x2C 0x5E 0x54 0x0A 0xB7
+```
+### Настроим сеть VLAN расширенного диапазона на коммутаторе S1
+```
+S1# conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)# vlan 2000
+S1(config-vlan)# end
+S1# show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/2, Fa0/4, Fa0/5, Fa0/7
+                                                Fa0/8, Fa0/9, Fa0/10, Fa0/11
+                                                Fa0/12, Fa0/13, Fa0/14, Fa0/15
+                                                Fa0/16, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20, Fa0/21, Fa0/22, Fa0/23
+                                                Fa0/24, Gi0/1, Gi0/2
+10   Red                              active    Fa0/6
+20   Blue                             active
+30   Yellow                           active
+99   Management                       active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+2000 VLAN2000                         active
+
+```
