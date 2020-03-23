@@ -25,17 +25,17 @@
    * [Настройте S2 в качестве сервера VTP](#VTP2) 
    * [Настроим S1 и S3 в качестве клиентов VTP](#VTP1)
 2. [Настроим динамический протокол транкинг (DTP)](#DTP)
-   * Настроим динамический магистральный канал между S1 и S2
-   * Настроим статическоий магистральный канал между S1 и S3
-3. Добавим сеть VLAN и назначение портов
-   * Добавим сети VlAN на коммутарах
-   * Проверим обновление VTP на коммутаторах S1 и S3
-   * Назначим порты сетям VLAN
-   * Настроим IP-адреса на коммутаторах 
-   * Проверим наличие сквозного соединения
-4. Настроим сети VLAN расширенного диапозона
-   * Переведем VTP на коммутаторе S1 в прозрачный режим
-   * Настроим сеть VLAN расширенного диапазона на коммутаторе S1
+   * [Настроим динамический магистральный канал между S1 и S2](#DTP1)
+   * [Настроим статическоий магистральный канал между S1 и S3](DTP2)
+3. [Добавим сеть VLAN и назначение портов](#VLAN)
+   * [Добавим сети VlAN на коммутарах](#VLAN1)
+   * [Проверим обновление VTP на коммутаторах S1 и S3](#VLAN2)
+   * [Назначим порты сетям VLAN](#VLAN3)
+   * [Настроим IP-адреса на коммутаторах](#VLAN4) 
+   * [Проверим наличие сквозного соединения](#VLAN5)
+4. [Настроим сети VLAN расширенного диапозона](#VLAN6)
+   * [Переведем VTP на коммутаторе S1 в прозрачный режим](#VLAN7)
+   * [Настроим сеть VLAN расширенного диапазона на коммутаторе S1](#VLAN8)
 
 
 ## Настройка VTP <a name="VTP"></a>
@@ -60,13 +60,13 @@
 * Configuration last modified by 0.0.0.0 at 3-1-93 00:40:06
 * Local updater ID is 0.0.0.0 (no valid interface found)
 ### Настроим S1 и S3 в качестве клиентов VTP <a name="VTP1"></a>
-* Switch(config)#vtp domain CCNA
+* Switch(config)#**vtp domain CCNA**
 * Domain name already set to CCNA.
-* Switch(config)#vtp mode client
+* Switch(config)#**vtp mode client**
 * Setting device to VTP Client mode for VLANS.
-* Switch(config)#vtp password cisco
+* Switch(config)#**vtp password cisco**
 * Password already set to cisco
-* Switch#sh vtp status 
+* Switch#**sh vtp status** 
 * VTP Version capable             : 1 to 3
 * VTP version running             : 1
 * VTP Domain Name                 : CCNA
@@ -83,4 +83,41 @@
                                       0x34 0xDB 0xE5 0xB5 0x68 0x63 0x5A 0x70
 
 ## Настроим динамический протокол транкинг (DTP)<a name="DTP"></a>
-S1(config)# interface f0/1
+### a.	Между коммутаторами S1 и S3 установите статический магистральный канал с помощью команды switchport mode trunk в режиме интерфейсной настройки для порта F0/3
+* Switch(config)#**interface f0/3**
+* Switch(config-if)# **switchport mode dynamic desirable**
+### Проверим магистрали с помощью команды show interfaces trunk на коммутаторе S1.
+* Switch#**sh interfaces trunk** 
+* Port        Mode             Encapsulation  Status        Native vlan
+* Fa0/1       auto             802.1q         trunking      1
+* Fa0/2       auto             802.1q         trunking      1
+* Fa0/3       auto             802.1q         trunking      1
+* Fa0/4       auto             802.1q         trunking      1
+* Port        Vlans allowed on trunk
+* Fa0/1       1-4094
+* Fa0/2       1-4094
+* Fa0/3       1-4094
+* Fa0/4       1-4094
+### Настроим постоянную магистраль между коммутаторами S2 и S3.
+* Switch(config)#**interface f0/1**
+* Switch(config-if)#**switchport mode trunk**
+* Switch#sh interfaces trunk
+* Port        Mode         Encapsulation  Status        Native vlan
+* Fa0/1       on           802.1q         trunking      1
+* Fa0/2       desirable    802.1q         trunking      1
+* Fa0/3       auto         802.1q         trunking      1
+* Fa0/4       desirable    802.1q         trunking      1
+### Настройка динамические магистральные каналы между S1 и S2
+* Switch(config)#**interface f0/3**
+* Switch(config-if)#**switchport mode dynamic desirable**
+* Switch#**sh interfaces trunk**
+* Port        Mode             Encapsulation  Status        Native vlan
+* Fa0/1       auto             802.1q         trunking      1
+* Fa0/2       auto             802.1q         trunking      1
+* Fa0/3       desirable        802.1q         trunking      1
+* Fa0/4       auto             802.1q         trunking      1
+* Port        Vlans allowed on trunk
+* Fa0/1       1-4094
+* Fa0/2       1-4094
+* Fa0/3       1-4094
+* Fa0/4       1-4094
