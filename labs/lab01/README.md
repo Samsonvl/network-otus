@@ -36,7 +36,7 @@
    * Настроим сеть VLAN расширенного диапазона на коммутаторе S1
 
 
-<a name="VTP"></a>
+## Настройка VTP <a name="VTP"></a>
 * Switch(config)#**vtp domain CCNA**
 * Domain name already set to CCNA.
 * Switch(config)#**vtp mode server**
@@ -57,5 +57,5 @@
 * Configuration last modified by 0.0.0.0 at 3-1-93 00:40:06
 * Local updater ID is 0.0.0.0 (no valid interface found)
 
-<a name="DTP"></a>
+## Настроим динамический протокол транкинг (DTP)<a name="DTP"></a>
 S1(config)# interface f0/1
