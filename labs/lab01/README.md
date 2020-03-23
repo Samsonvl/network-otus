@@ -22,6 +22,8 @@
 
 ## Решение 
 1. [Настроим VTP](#VTP)
+   * [Настройте S2 в качестве сервера VTP](#VTP2) 
+   * [Настроим S1 и S3 в качестве клиентов VTP](#VTP1)
 2. [Настроим динамический протокол транкинг (DTP)](#DTP)
    * Настроим динамический магистральный канал между S1 и S2
    * Настроим статическоий магистральный канал между S1 и S3
@@ -37,6 +39,7 @@
 
 
 ## Настройка VTP <a name="VTP"></a>
+### Настройте S2 в качестве сервера VTP <a name="VTP2"></a>
 * Switch(config)#**vtp domain CCNA**
 * Domain name already set to CCNA.
 * Switch(config)#**vtp mode server**
@@ -56,6 +59,28 @@
 * MD5 digest                      : 0x16 0x68 0xF2 0x0B 0x67 0x31 0x81 0x1B 
 * Configuration last modified by 0.0.0.0 at 3-1-93 00:40:06
 * Local updater ID is 0.0.0.0 (no valid interface found)
+### Настроим S1 и S3 в качестве клиентов VTP <a name="VTP1"></a>
+* Switch(config)#vtp domain CCNA
+* Domain name already set to CCNA.
+* Switch(config)#vtp mode client
+* Setting device to VTP Client mode for VLANS.
+* Switch(config)#vtp password cisco
+* Password already set to cisco
+* Switch#sh vtp status 
+* VTP Version capable             : 1 to 3
+* VTP version running             : 1
+* VTP Domain Name                 : CCNA
+* VTP Pruning Mode                : Disabled
+* VTP Traps Generation            : Disabled
+* Device ID                       : 0008.302d.4580
+* Configuration last modified by 0.0.0.0 at 3-1-93 00:40:06 
+* Feature VLAN:
+* VTP Operating Mode                : Client
+* Maximum VLANs supported locally   : 255
+* Number of existing VLANs          : 9
+* Configuration Revision            : 8
+* MD5 digest                        : 0x16 0x68 0xF2 0x0B 0x67 0x31 0x81 0x1B 
+                                      0x34 0xDB 0xE5 0xB5 0x68 0x63 0x5A 0x70
 
 ## Настроим динамический протокол транкинг (DTP)<a name="DTP"></a>
 S1(config)# interface f0/1
