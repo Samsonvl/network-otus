@@ -206,7 +206,7 @@
 * 1004 fddinet-default                  act/unsup 
 * 1005 trnet-default                    act/unsup 
 
-### Накинем VLAN на порты
+### Накинем VLAN на порты<a name="VLAN3"></a>
 | Назначение портов    | VLAN      | IP-адрес и префикс прикрпленного компьютера   |  
 |---------------------:|:----------|----------------------------------------------:|
 | S1 F0/6              | VLAN 10   | 192.168.99.1                                  |
@@ -224,7 +224,7 @@
 * S2(config)#**interface f0/15**
 * S2(config-if)# **switchport mode access**
 * S2(config-if)# **switchport access vlan 10**
-## Настроим IP-адреса на коммутаторах
+### Настроим IP-адреса на коммутаторах<a name="VLAN4"></a>
 #### На коммутаторе S1 назначьте IP-адрес интерфейсу SVI для сети VLAN 99 в соответствии с таблицей адресации и активируйем интерфейс.
 * S1(config)# **interface vlan 99**
 * S1(config-if)# **ip address 192.168.99.1 255.255.255.0**
@@ -237,11 +237,10 @@
 * S3(config)# **interface vlan 99**
 * S3(config-if)# **ip address 192.168.99.3 255.255.255.0**
 * S3(config-fi)# **no shutdown**
-### Проверим наличие сквозного соединения
+### Проверим наличие сквозного соединения<a name="VLAN5"></a>
 
-## Настройка сети VLAN расширенного диапазона
-### Переведем  VTP на коммутаторе S1 в прозрачный режим
-#### Переведем VTP на коммутаторе S1 в прозрачный режим.
+## Настройка сети VLAN расширенного диапазона<a name="VLAN6"></a>
+### Переведем VTP на коммутаторе S1 в прозрачный режим.<a name="VLAN7"></a>
 ```
 S1(config)# vtp mode transparent
 Setting device to VTP Transparent mode for VLANS.
@@ -267,7 +266,7 @@ Configuration Revision            : 0
 MD5 digest                        : 0xB2 0x9A 0x11 0x5B 0xBF 0x2E 0xBF 0xAA
                                     0x31 0x18 0xFF 0x2C 0x5E 0x54 0x0A 0xB7
 ```
-### Настроим сеть VLAN расширенного диапазона на коммутаторе S1
+### Настроим сеть VLAN расширенного диапазона на коммутаторе S1<a name="VLAN8"></a>
 ```
 S1# conf t
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -294,3 +293,4 @@ VLAN Name                             Status    Ports
 2000 VLAN2000                         active
 
 ```
+Преимуществом VTP является возможность быстро создавать VLAN 
