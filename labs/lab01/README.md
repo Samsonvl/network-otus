@@ -38,4 +38,25 @@
 
 <a name="твоё_название"></a>
 S2(config)# vtp domain CCNA
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+
 <a name="DTP"></a>
+S1(config)# interface f0/1
