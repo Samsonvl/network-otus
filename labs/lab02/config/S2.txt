@@ -1,0 +1,353 @@
+Switch>en
+Switch>enable 
+Switch#conf ter
+Switch#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#no ip
+Switch(config)#no ip dom
+Switch(config)#no ip domain-
+Switch(config)#no ip domain-l
+Switch(config)#no ip domain-loo
+Switch(config)#no ip domain-lookup 
+Switch(config)#hostname S2
+S2(config)#enab
+S2(config)#enable pass 
+S2(config)#enable pass 
+S2(config)#enable password class
+S2(config)#linoe
+S2(config)#lino cons
+S2(config)#lino vty 0 15
+              ^
+% Invalid input detected at '^' marker.
+S2(config)#line vty 0 15
+S2(config-line)#password cisco
+S2(config-line)#login
+S2(config-line)#exit
+S2(config)#line console 0
+S2(config-line)#password cisco
+S2(config-line)#logging synchronus 
+Translating "synchronus"
+                                ^
+% Invalid input detected at '^' marker.
+S2(config-line)#logging syn        
+S2(config-line)#logging synchronous 
+S2(config-line)#banner
+S2(config-line)#banner 
+S2(config-line)#banner mo
+S2(config-line)#banner mot
+S2(config-line)#exit      
+S2(config-line)#exit 
+S2(config)#banner motd
+% Incomplete command.
+S2(config)#banner motd # ban #      
+S2(config)#inter
+S2(config)#interface vlan 1
+S2(config-if)#ip address 192.168.1.2 255.255.255.0
+S2(config-if)#exit
+S2(config)#exit
+S2#
+00:27:50: %SYS-5-CONFIG_I: Configured from console by console
+S2#en
+S2#enable 
+S2#con ter
+% Ambiguous command:  "con ter"
+S2#con ter
+% Ambiguous command:  "con ter"
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#inter
+S2(config)#interface vlan 1
+S2(config-if)#no shutdown
+S2(config-if)#
+00:28:25: %LINK-3-UPDOWN: Interface Vlan1, changed state to up
+00:28:26: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+S2(config-if)#exit
+S2(config)#exit
+S2#
+00:28:33: %SYS-5-CONFIG_I: Configured from console by console
+S2#copy run
+S2#copy running-config
+S2#copy running-config st
+S2#copy running-config startup-config
+S2#copy running-config startup-config
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+S2#
+S2>
+S2 con0 is now available
+Press RETURN to get started.
+01:31:19: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+01:31:20: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to down
+01:31:39: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to down
+01:31:40: %LINK-3-UPDOWN: Interface FastEthernet0/4, changed state to down ban 
+S2> en
+S2> enable 
+Password: 
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#exit
+S2#sh 
+01:33:11: %SYS-5-CONFIG_I: Configured from console by console
+S2#sh inter
+S2#sh interfaces  des
+S2#sh interfaces  description 
+Interface                      Status         Protocol Description
+Vl1                            up             up       
+Fa0/1                          up             up       
+Fa0/2                          up             up       
+Fa0/3                          down           down     
+Fa0/4                          down           down     
+Fa0/5                          down           down     
+Fa0/6                          down           down     
+Fa0/7                          down           down     
+Fa0/8                          down           down     
+Fa0/9                          down           down     
+Fa0/10                         down           down     
+Fa0/11                         down           down     
+Fa0/12                         down           down     
+Fa0/13                         down           down     
+Fa0/14                         down           down     
+Fa0/15                         up             up       
+Fa0/16                         down           down     
+Fa0/17                         down           down     
+Fa0/18                         down           down     
+Fa0/19                         down           down     
+Fa0/20                         down           down     
+Fa0/21                         down           down     
+Fa0/22                         down           down     
+Fa0/23                         down           down     
+Fa0/24                         down           down     
+Gi0/1                          down           down     
+Gi0/2                          down           down     
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#inter
+S2(config)#interface f0/2
+S2(config-if)#shutdown
+S2(config-if)#exit
+S2(config)#inyt
+01:33:40: %LINK-5-CHANGED: Interface FastEthernet0/2, changed state to administratively down
+01:33:41: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to down
+S2(config)#inyter
+S2(config)#inter 
+S2(config)#interface f0/1
+S2(config-if)#shutdown
+S2(config-if)#
+01:33:52: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+01:33:53: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+S2(config-if)#exit
+S2(config)#inter
+S2(config)#interface f0/15
+S2(config-if)#shutdown
+S2(config-if)#e
+01:34:06: %LINK-5-CHANGED: Interface FastEthernet0/15, changed state to administratively down
+01:34:07: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/15, changed state to down
+S2(config-if)#exit
+S2(config)#exit
+S2#
+01:34:16: %SYS-5-CONFIG_I: Configured from console by console
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#interf
+S2(config)#interface f0/3
+S2(config-if)#switc
+S2(config-if)#switchport mode trunk
+S2(config-if)#exit
+S2(config)#interface f0/4       
+S2(config-if)#switch 
+S2(config-if)#switchport mode trunk
+S2(config-if)#switchport mode trunk 
+S2(config-if)#exit
+S2(config)#interface f0/1        
+S2(config-if)#switch
+S2(config-if)#switchport mode trunk
+S2(config-if)#exit
+S2(config)#interface f0/2       
+S2(config-if)#switch
+S2(config-if)#switchport mode trunk
+S2(config-if)#exit
+S2(config)#
+01:44:10: %LINK-3-UPDOWN: Interface FastEthernet0/4, changed state to up
+S2(config)#
+01:44:12: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+S2(config)#inter
+S2(config)#interface f0/2
+S2(config-if)#no switch
+S2(config-if)#no switchport 
+% Incomplete command.
+S2(config-if)#no shut       
+S2(config-if)#no shutdown 
+S2(config-if)#
+01:44:46: %LINK-3-UPDOWN: Interface FastEthernet0/2, changed state to up
+S2(config-if)#
+01:44:49: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up
+S2(config-if)#exit
+S2(config)#interface f0/4
+S2(config-if)#no shut
+S2(config-if)#no shutdown 
+S2(config-if)#exit
+S2(config)#exit
+S2#sh 
+01:48:51: %SYS-5-CONFIG_I: Configured from console by console
+S2#sh sp
+S2#sh spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             Cost        19
+             Port        4 (FastEthernet0/4)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0015.fac1.4500
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Altn BLK 19        128.2    P2p 
+Fa0/4            Root FWD 19        128.4    P2p 
+S2#
+S2(config)#sh p  
+S2(config)#sh sp
+S2(config)#sh sp
+S2(config)#exit 
+S2#sh 
+01:30:45: %SYS-5-CONFIG_I: Configured from console by console
+S2#sh sp
+S2#sh spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             Cost        19
+             Port        4 (FastEthernet0/4)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0015.fac1.4500
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Altn BLK 18        128.2    P2p 
+Fa0/4            Root FWD 19        128.4    P2p 
+S2#
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#inter
+S2(config)#interface f0/2
+S2(config-if)#sp
+S2(config-if)#spa
+S2(config-if)#spanning-tree cost 19
+S2(config-if)#exit
+S2(config)#inetr
+S2(config)#inter
+S2(config)#interface f0/4
+S2(config-if)#spa
+S2(config-if)#spanning-tree cost 18
+S2(config-if)#exit
+S2(config)#exit
+S2#
+01:39:39: %SYS-5-CONFIG_I: Configured from console by console
+S2#sh pa
+S2#sh sp
+S2#sh spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             Cost        18
+             Port        4 (FastEthernet0/4)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0015.fac1.4500
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 15 
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Desg LIS 19        128.2    P2p 
+Fa0/4            Root FWD 18        128.4    P2p 
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#inter
+S2(config)#interface f0/4
+S2(config-if)#no sp
+S2(config-if)#no sp
+S2(config-if)#no spa
+S2(config-if)#no spanning-tree cost 18
+S2(config-if)#exit 
+S2(config)#exit
+S2#
+01:42:49: %SYS-5-CONFIG_I: Configured from console by console
+S2#sh sp
+S2#sh spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             Cost        19
+             Port        4 (FastEthernet0/4)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0015.fac1.4500
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 15 
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Altn BLK 19        128.2    P2p 
+Fa0/4            Root FWD 19        128.4    P2p 
+S2#
+S2 con0 is now available
+Press RETURN to get started.
+01:54:00: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to up ban 
+S2>
+01:54:02: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+S2>en
+S2>enable 
+Password: 
+S2#intyer
+S2#inter 
+S2#conf ter
+S2#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#inter
+S2(config)#interface f0/1
+S2(config-if)#no shut
+S2(config-if)#no shutdown 
+S2(config-if)#exi
+01:54:29: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+S2(config-if)#exit
+S2(config)#exit
+01:54:32: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+S2(config)#interface f0/3
+S2(config-if)#no shutdown   
+S2(config-if)#exit
+S2(config)#exit
+S2#
+01:55:23: %SYS-5-CONFIG_I: Configured from console by console
+S2#sh sp
+S2#sh spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             Cost        19
+             Port        3 (FastEthernet0/3)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0015.fac1.4500
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Altn BLK 19        128.1    P2p 
+Fa0/2            Altn BLK 19        128.2    P2p 
+Fa0/3            Root FWD 19        128.3    P2p 
+Fa0/4            Altn BLK 19        128.4    P2p 
+S2#

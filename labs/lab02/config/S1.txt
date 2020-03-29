@@ -1,0 +1,390 @@
+Switch>en
+Switch>enable 
+Switch#conf ter
+Switch#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#no ip domain-lookup
+Switch(config)#host
+Switch(config)#hostname S1
+S1(config)#en
+S1(config)#enab
+S1(config)#enable pass
+S1(config)#enable password class
+S1(config)#line
+S1(config)#line cons
+S1(config)#line console 0
+S1(config-line)#pass
+S1(config-line)#password cisco
+S1(config-line)#login
+S1(config-line)#exit
+S1(config)#line vty 0 15
+S1(config-line)#pass
+S1(config-line)#password cisco
+S1(config-line)#login
+S1(config-line)#line con
+S1(config-line)#line conso
+S1(config-line)#exit      
+S1(config)#line cons
+S1(config)#line console 
+% Incomplete command.
+S1(config)#logg
+S1(config)#logging syn
+S1(config)#logging synch
+S1(config)#line con     
+S1(config)#line console 
+S1(config)#line console  
+S1(config)#line console  
+% Incomplete command.
+S1(config)#line console  0
+S1(config-line)#logg
+S1(config-line)#logging syn
+S1(config-line)#logging synchronous 
+S1(config-line)#exit
+S1(config)#banner 
+S1(config)#banner motd 
+S1(config)#banner motd # text #
+S1(config)#sh vlan
+              ^
+% Invalid input detected at '^' marker.
+S1(config)#sh vla
+S1(config)#q     
+% Incomplete command.
+S1(config)#exite
+               ^
+% Invalid input detected at '^' marker.
+S1(config)#exit 
+S1#
+*Mar  1 00:10:50.427: %SYS-5-CONFIG_I: Configured from console by console
+S1#sh vlan br
+S1#sh vlan brief 
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gi0/1, Gi0/2
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+S1#conf ter
+S1#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#vlan 1
+S1(config-vlan)#exit
+S1(config)#inter
+S1(config)#interface vlan 1 
+S1(config-if)#ip address 192.168.1.1 255.255.255.0
+S1(config-if)#exit
+S1(config)#copy runn
+S1(config)#copy runn
+S1(config)#copy run 
+S1(config)#copy running 
+S1(config)#copy running-c
+S1(config)#q             
+% Incomplete command.
+S1(config)#exit
+S1#
+*Mar  1 00:13:36.312: %SYS-5-CONFIG_I: Configured from console by console
+S1#copy running-config star
+S1#copy running-config startup-config
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+S1#conf ter
+S1#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#inter
+S1(config)#interface  vlan 1
+S1(config-if)#no shut
+S1(config-if)#no shutdown 
+S1(config-if)#
+*Mar  1 00:23:56.247: %LINK-3-UPDOWN: Interface Vlan1, changed state to up
+S1(config-if)#exit
+*Mar  1 00:23:56.255: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+S1(config-if)#exit
+S1(config)#exit
+S1#
+*Mar  1 00:24:01.699: %SYS-5-CONFIG_I: Configured from console by console
+
+S1>en
+S1>enable 
+Password: 
+Password: 
+S1#conf ter
+S1#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#inter
+S1(config)#interface ethe 
+S1(config)#interface f0/1, inter
+S1(config)#interface f0/1, f0/2, f0/3, f0/4, f0/15
+                         ^
+% Invalid input detected at '^' marker.
+S1(config)#interface f0/1                         
+S1(config-if)#shutdown
+S1(config-if)#interface f0/1
+*Mar  1 01:26:02.256: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+*Mar  1 01:26:03.263: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+S1(config-if)#exit          
+S1(config)#interface f0/2
+S1(config-if)#shutdown
+S1(config-if)#exit
+S1(config)#interface f0/2
+*Mar  1 01:26:19.118: %LINK-5-CHANGED: Interface FastEthernet0/2, changed state to administratively down
+S1(config)#interface f0/3
+S1(config-if)#
+*Mar  1 01:26:20.124: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to down
+S1(config-if)#shutdown
+S1(config-if)#exit
+*Mar  1 01:26:27.078: %LINK-5-CHANGED: Interface FastEthernet0/3, changed state to administratively down
+*Mar  1 01:26:28.085: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+S1(config-if)#exit
+S1(config)#inter
+S1(config)#interface f0/4
+S1(config-if)#shutdown
+S1(config-if)#exit
+S1(config)#
+*Mar  1 01:26:46.288: %LINK-5-CHANGED: Interface FastEthernet0/4, changed state to administratively down
+*Mar  1 01:26:47.295: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to down
+S1(config)#inter
+S1(config)#interface 0/15
+                     ^
+% Invalid input detected at '^' marker.
+S1(config)#shutdown
+% Incomplete command.
+S1(config)#shutdown f0/15 
+                    ^
+% Invalid input detected at '^' marker.
+S1(config)#inter          
+S1(config)#interface f0/15
+S1(config-if)#shutdown
+S1(config-if)#
+*Mar  1 01:27:18.417: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+S1(config-if)#
+*Mar  1 01:27:20.413: %LINK-5-CHANGED: Interface FastEthernet0/15, changed state to administratively down
+*Mar  1 01:27:21.420: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/15, changed state to down
+S1(config-if)#exit
+S1(config)#sh inter
+S1(config)#sho     
+S1(config)#sho
+S1(config)#exit
+S1#sh 
+*Mar  1 01:27:47.676: %SYS-5-CONFIG_I: Configured from console by console
+S1#sh inter
+S1#sh interfaces des
+S1#sh interfaces description 
+Interface                      Status         Protocol Description
+Vl1                            up             down     
+Fa0/1                          admin down     down     
+Fa0/2                          admin down     down     
+Fa0/3                          admin down     down     
+Fa0/4                          admin down     down     
+Fa0/5                          down           down     
+Fa0/6                          down           down     
+Fa0/7                          down           down     
+Fa0/8                          down           down     
+Fa0/9                          down           down     
+Fa0/10                         down           down     
+Fa0/11                         down           down     
+Fa0/12                         down           down     
+Fa0/13                         down           down     
+Fa0/14                         down           down     
+Fa0/15                         admin down     down     
+Fa0/16                         down           down     
+Fa0/17                         down           down     
+Fa0/18                         down           down     
+Fa0/19                         down           down     
+Fa0/20                         down           down     
+Fa0/21                         down           down     
+Fa0/22                         down           down     
+Fa0/23                         down           down     
+Fa0/24                         down           down     
+Gi0/1                          down           down     
+Gi0/2                          down           down     
+S1#conf ter
+S1#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#inter
+S1(config)#interface f0/3
+S1(config-if)#switch
+S1(config-if)#switchport mode trunk
+S1(config-if)#exit                 
+S1(config)#interface f0/4       
+S1(config-if)#switch 
+S1(config-if)#switch 
+S1(config-if)#switchport mode trunk
+S1(config-if)#exit
+S1(config)#interface f0/1       
+S1(config-if)#switch
+S1(config-if)#switchport mode trunk
+S1(config-if)#exit
+S1(config)#interface f0/2       
+S1(config-if)#switch mode trunk
+S1(config-if)#exit
+S1(config)#inter
+S1(config)#interface f0/2
+S1(config-if)#no shutdown
+S1(config-if)#
+*Mar  1 01:38:58.773: %LINK-3-UPDOWN: Interface FastEthernet0/2, changed state to up
+S1(config-if)#exit
+S1(config)#
+*Mar  1 01:39:02.389: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up
+S1(config)#interface f0/4
+S1(config-if)#no shut
+S1(config-if)#no shutdown 
+S1(config-if)#
+*Mar  1 01:39:14.628: %LINK-3-UPDOWN: Interface FastEthernet0/4, changed state to up
+S1(config-if)#
+*Mar  1 01:39:18.268: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+S1(config-if)#exit
+S1(config)#
+*Mar  1 01:39:31.405: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+S1(config)#exit
+S1#
+*Mar  1 01:42:21.425: %SYS-5-CONFIG_I: Configured from console by console
+S1#show
+S1#show sp
+S1# 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0008.302d.4580
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Fa0/2               Desg FWD 19        128.2    P2p 
+Fa0/4               Desg FWD 19        128.4    P2p 
+S1#
+*Mar  1 00:04:12.715: %LINK-3-UPDOWN: Interface Vlan1, changed state to up
+S1(config)#
+*Mar  1 00:04:12.723: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+S1(config)#inter
+S1(config)#interface f0/15
+S1(config-if)#shutdown
+S1(config-if)#
+*Mar  1 00:04:35.154: %LINK-5-CHANGED: Interface FastEthernet0/15, changed state to administratively down
+*Mar  1 00:04:36.161: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/15, changed state to down
+S1(config-if)#exit
+S1(config)#inter
+S1(config)#interface f0/1
+S1(config-if)#shutdown
+S1(config-if)#exit
+S1(config)#
+*Mar  1 00:04:51.965: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+*Mar  1 00:04:52.972: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+S1(config)#inter
+S1(config)#interface f0/3
+S1(config-if)#shutdown
+S1(config-if)#
+*Mar  1 00:05:05.143: %LINK-5-CHANGED: Interface FastEthernet0/3, changed state to administratively down
+*Mar  1 00:05:06.150: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+S1(config-if)#exit
+S1(config)#
+S1 con0 is now available
+Press RETURN to get started.
+*Mar  1 00:15:09.962: %SYS-5-CONFIG_I: Configured from console by console text 
+User Access Verification
+Password: 
+S1>en
+S1>enable 
+Password: 
+S1#xonf ter
+S1#cof ter 
+S1#conf ter
+S1#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#inter
+S1(config)#exit         
+S1#
+*Mar  1 01:21:48.795: %SYS-5-CONFIG_I: Configured from console by console
+S1#inter
+S1#inter
+S1#sh interf
+S1#sh interfaces des
+S1#sh interfaces description 
+Interface                      Status         Protocol Description
+Vl1                            up             up       
+Fa0/1                          admin down     down     
+Fa0/2                          up             up       
+Fa0/3                          admin down     down     
+Fa0/4                          up             up       
+Fa0/5                          down           down     
+Fa0/6                          down           down     
+Fa0/7                          down           down     
+Fa0/8                          down           down     
+Fa0/9                          down           down     
+Fa0/10                         down           down     
+Fa0/11                         down           down     
+Fa0/12                         down           down     
+Fa0/13                         down           down     
+Fa0/14                         down           down     
+Fa0/15                         admin down     down     
+Fa0/16                         down           down     
+Fa0/17                         down           down     
+Fa0/18                         down           down     
+Fa0/19                         down           down     
+Fa0/20                         down           down     
+Fa0/21                         down           down     
+Fa0/22                         down           down     
+Fa0/23                         down           down     
+Fa0/24                         down           down     
+Gi0/1                          down           down     
+Gi0/2                          down           down     
+S1#sh sp
+S1#sh spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0008.302d.4580
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0008.302d.4580
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  15  sec
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Fa0/2               Desg FWD 19        128.2    P2p 
+Fa0/4               Desg FWD 19        128.4    P2p 
+S1#
+S1 con0 is now available
+Press RETURN to get started.
+ text 
+User Access Verification
+Password: 
+S1>emn
+S1>en 
+S1>enable 
+Password: 
+S1#conf ter
+S1#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#inter
+S1(config)#interface f0/1
+S1(config-if)#no shu
+S1(config-if)#no shutdown 
+S1(config-if)#exit
+S1(config)#
+*Mar  1 01:52:48.910: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+S1(config)#inter
+S1(config)#interface 0 
+*Mar  1 01:52:52.659: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+S1(config)#interface f0/3
+S1(config-if)#no shut
+S1(config-if)#no shutdown 
+S1(config-if)#exit
+S1(config)#
+*Mar  1 01:53:04.764: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to up
+S1(config)#
+*Mar  1 01:53:08.573: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+S1(config)#exit
+S1#
+*Mar  1 01:54:32.492: %SYS-5-CONFIG_I: Configured from console by console
+S1#
