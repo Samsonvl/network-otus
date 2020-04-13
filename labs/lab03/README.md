@@ -85,9 +85,7 @@
 
 ### Проверим подключение между PC-S1 и PC-S3
 
-Ping с PC-S1 на PS-S3
-
-![](Ping PC-S1.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Ping%20PC-S1.png)
 
 ### Настроим маршрутизацию RIP
 
@@ -171,7 +169,7 @@ L        192.168.1.3/32 is directly connected, FastEthernet0/1
 
 Проверим подключение с компьютеров PC-S1 и PC-S2 на все интерфейсы маршрутизаторов
 
-![Screenshot_15](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_15.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_15.png)
 
 
 Когда убедились что все пинги проходят  до всех интерфейсов проходят, можно приступить к настройке HSRP
@@ -198,11 +196,11 @@ Tracing route to 209.165.200.225 over a maximum of 30 hops
 
 Далее запустим не прерывный пинг и разорвем соединение между S1 и R1
 
-![шаг2 b](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\шаг2 b.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/шаг2%20b.png)
 
 Как видно маршрут до R2 стал не доступен
 Попробуем проделать все тоже самое только с PC-S3, только перед этим включим соединение между S1 и R1
-![image-20200413130801661](C:\Users\s.honda\AppData\Roaming\Typora\typora-user-images\image-20200413130801661.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_20.png)
 
 Результат одинаковый
 
@@ -275,32 +273,32 @@ IP-адрес и приоритет для резервного маршрути
 
 Посмотрим сводку состояния HSRP
 
-![Screenshot_13](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_13.png)
-![Screenshot_14](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_14.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_13.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_14.png)
 
 Далее изменим адрес шлюза по умолчанию для PC-S1, PC-S3,  S1, S3 на 192.168.1.254
 
 Проверим пингом 
-![Screenshot_15](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_15.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_15.png)
 Поставим на не прерывный пинг с PC-S1 и попробуем снова разорвать соединение между S1 и R1
-![Screenshot_17](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_17.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_17.png)
 Как видим эхо-запрос прервался на короткое время и дальше продолжился, потому что произошло переключение на резервный маршрутизатор R3
 
-![выключил 5 порт](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\выключил 5 порт.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/выключил%205%20порт.png)
 
 
-![Когда отключил порт 5](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Когда отключил порт 5.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Когда%20отключил%20порт%205.png)
 
 Теперь обратно включил интерфейс F0/5
-![ports 5 vkluchen](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\ports 5 vkluchen.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/ports%205%20vkluchen.png)
 
-![port 5 vkluchen](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\port 5 vkluchen.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/port%205%20vkluchen.png)
 
 Теперь изменим приоритет  на 200 на маршрутизаторе R3, чтобы сделать его активным надо прописать команду `standby 1 preempt`
 
 
-![Screenshot_18](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_18.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_18.png)
 
-![Screenshot_19](C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Screenshot_19.png)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab03/Screenshot_19.png)
 
 *Избыточность в локальной сети актуальна особенно там, где малейший простой может обернуться серьезными потерями. Чтобы такого не случилось, были разработаны специальные протоколы: всем известный STP, разнообразные протоколы агрегации каналов, протоколы, обеспечивающие отказоустойчивость шлюза по умолчанию. 
