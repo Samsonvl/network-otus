@@ -1,0 +1,21 @@
+(config)#no ip domain-lookup
+(config)#hostname S1 
+(config)#enable secret class
+(config)#line console 0
+(config-line)#password cisco
+(config-line)#login
+(config-line)#logging synchronous
+(config-line)#exit
+(config)#line vty 0 15
+(config-line)#password cisco
+(config-line)#login
+(config-line)#exit
+(config)#interface vlan 1
+(config-if)#ip address 192.168.1.11 255.255.255.0
+(config-if)#no shutdown
+(config-if)#exit
+(config)#ip default-gateway 192.168.1.1
+(config)#^Z
+#copy running-config startup-config
+
+ip default-gateway 192.168.1.254

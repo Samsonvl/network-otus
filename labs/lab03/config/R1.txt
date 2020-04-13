@@ -1,0 +1,42 @@
+(config)#no ip domain-lookup 
+(config)#hostname R1 
+(config)#interface gigabitEthernet 0/1
+(config-if)#ip address 192.168.1.1 255.255.255.0
+(config-if)#no shutdown
+(config-if)#exit
+(config)#interface serial 0/0/1
+(config-if)#ip address 10.1.1.1 255.255.255.252
+(config-if)#no shutdown  
+(config-if)#exit
+(config)#enable secret class
+(config)#line console 0
+(config-line)#password cisco
+(config-line)#login
+(config-line)#logging synchronous
+(config-line)#exit
+(config)#line vty 0 15
+(config-line)#password cisco
+(config-line)#login
+(config-line)#^Z
+#copy running-config startup-config
+
+(config)#router rip
+(config-router)#version 2
+(config-router)#no auto-summary
+(config-router)#do sh ip route conn
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+Gateway of last resort is not set
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.1.1/32 is directly connected, GigabitEthernet0/1
+(config-router)#network 10.0.0.0 
+(config-router)#network 192.168.1.0
+(config-router)#^Z
+#copy running-config startup-config

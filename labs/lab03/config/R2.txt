@@ -1,0 +1,46 @@
+(config)#no ip domain-lookup 
+(config)#hostname R2 
+(config)#interface serial 0/1/0
+(config-if)#ip address 10.2.2.2 255.255.255.252
+(config-if)#no shutdown
+(config-if)#exit
+(config)#interface serial 0/1/1
+(config-if)#ip address 10.1.1.2 255.255.255.252
+(config-if)#clock rate 128000
+(config-if)#no shutdown
+(config-if)#exit
+(config)#interface loopback 1
+(config-if)#ip address 209.165.200.225 255.255.255.224
+(config-if)#exit
+(config)#enable secret class
+(config)#line console 0
+(config-line)#password cisco
+(config-line)#login
+(config-line)#logging synchronous
+(config-line)#exit
+(config)#line vty 0 15
+(config-line)#password cisco
+(config-line)#login
+(config-line)#^Z
+#copy running-config startup-config
+
+(config)#router rip
+(config-router)#version 2
+(config-router)#no auto-summary
+(config-router)#do sh ip route conn
+     209.165.200.0/27 is subnetted, 1 subnets
+C       209.165.200.224 is directly connected, Loopback1
+     10.0.0.0/30 is subnetted, 1 subnets
+C       10.1.1.0 is directly connected, Serial0/1/0
+(config-router)#network 10.0.0.0 
+(config-router)#^Z
+#copy running-config startup-config
+
+(config)#ip route 0.0.0.0 0.0.0.0 loopback 1
+(config)#^Z
+#copy running-config startup-config
+
+(config)#router rip
+(config-router)#default-information originate
+(config-router)#^Z
+#copy running-config startup-config
