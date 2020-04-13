@@ -1,6 +1,6 @@
 # Лабораторная работа. Настройка HSRP
 
-![Screenshot_8](C:\Users\s.honda\Downloads\Screenshot_8.png)
+![](Screenshot_8.png)
 
 Таблица адресации
 
