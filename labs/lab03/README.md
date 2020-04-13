@@ -87,7 +87,7 @@
 
 Ping с PC-S1 на PS-S3
 
-<img src="C:\Users\s.honda\Downloads\archive-2020-04-13_03-59-16\archive\Ping PC-S1.png" alt="Ping PC-S1" style="zoom:100%;" />
+![](Ping PC-S1.png)
 
 ### Настроим маршрутизацию RIP
 
