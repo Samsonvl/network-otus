@@ -1,0 +1,28 @@
+(config)#no ip domain-lookup
+(config)#no ip domain-lookup
+(config)#enable secret class
+(config)#line console 0
+(config-line)#password cisco
+(config-line)#login
+(config-line)#logging synchronous
+(config-line)#exit
+(config)#line vty 0 15
+(config-line)#password cisco
+(config-line)#login
+(config-line)#exit
+(config)#interface range fastEthernet 0/1 - 14, fa0/16 - 24, g0/1 - 2
+(config-if-range)#shutdown
+(config-if-range)#exit
+(config)#vlan 99
+(config-vlan)#name Management
+(config-vlan)#exit
+(config)#vlan 10
+(config-vlan)#name Staff
+(config-vlan)#exit
+(config)#int f0/15
+(config-if)#switchport mode access
+(config-if)#switchport access vlan 10
+(config-if)#exit
+(config)#int vlan 99
+(config-if)#ip address 192.168.99.13 255.255.255.0
+(config-if)#no shut
