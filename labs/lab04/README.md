@@ -24,7 +24,7 @@
 
 ## Настройка основных параметров коммутатора<a name="EC1"></a>
 
-Ниже пример, с полной конфигурацией можно ознакомиться [тут]()
+Ниже пример, с полной конфигурацией можно ознакомиться [тут](https://github.com/Samsonvl/network-otus/tree/master/labs/lab04/config)
 
 ```
 (config)#no ip domain-lookup
