@@ -281,4 +281,6 @@ Port-channel 3 находится в дауне
 
 ![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab05/Screenshots/2.4%20pc-a%20ping%20pc-c.png)
 
+Вывод
+Нанимайте хороших сетевых администраторов, или обучайте их на otus.ru
 
