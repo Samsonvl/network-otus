@@ -263,7 +263,7 @@ Port-channel 3 находится в дауне
 
 ![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab05/Screenshots/2.3f.png)
 
-Проверим EtherChannel и подключения
+### Проверим EtherChannel и подключения
 
 Выполним эхо-запрос от коммутатора S1 на коммутатор S2
 
