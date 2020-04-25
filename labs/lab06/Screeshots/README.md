@@ -71,14 +71,11 @@
 
 5. Проверим связь
 
-   R1
-   ![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab06/Screeshots/1.5R1.png)
+   ![R1](https://github.com/Samsonvl/network-otus/blob/master/labs/lab06/Screeshots/1.5R1.png)
 
-   R2
 
-   ![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab06/Screeshots/1.5R2.png)
+   ![R2](https://github.com/Samsonvl/network-otus/blob/master/labs/lab06/Screeshots/1.5R2.png)
 
-   R3
 
-   ![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab06/Screeshots/1.5R3.png)
+   ![R3](https://github.com/Samsonvl/network-otus/blob/master/labs/lab06/Screeshots/1.5R3.png)
 
