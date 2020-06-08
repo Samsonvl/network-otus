@@ -263,10 +263,10 @@ R16
 ```
 R16(config)#int e0/2.30
 R16(config-subif)#encapsulation dot1q 30
-R16(config-subif)# ip address 192.168.30.3 255.255.255.0
+R16(config-subif)# ip address 192.168.30.1 255.255.255.0
 R16(config)#int e0/2.40
 R16(config-subif)#encapsulation dot1q 40
-R16(config-subif)# ip address 192.168.40.3 255.255.255.0
+R16(config-subif)# ip address 192.168.40.1 255.255.255.0
 ```
 
 R17
@@ -274,10 +274,10 @@ R17
 ```
 R17(config)#int e0/2.30
 R17(config-subif)#encapsulation dot1q 30
-R17(config-subif)# ip address 192.168.30.2 255.255.255.0
+R17(config-subif)# ip address 192.168.30.1 255.255.255.0
 R17(config)#int e0/2.40
 R17(config-subif)#encapsulation dot1q 40
-R17(config-subif)# ip address 192.168.40.2 255.255.255.0
+R17(config-subif)# ip address 192.168.40.1 255.255.255.0
 ```
 
 SW2
