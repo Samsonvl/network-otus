@@ -117,7 +117,12 @@ route-map CHOKURDAH permit 20
 R25
 
 ```
-R25(config)#                                                                             R25(config)#route-map STATIC permit 10                                                   R25(config-route-map)#                                                                   R25(config-route-map)#match int e0/3                                                     R25(config-route-map)#                                                                   R25(config-route-map)#set ip default next-hop 109.126.18.237
+R25(config)#    
+R25(config)#route-map STATIC permit 10                                                   
+R25(config-route-map)#                                                                   
+R25(config-route-map)#match int e0/3           
+R25(config-route-map)#                                                                  
+R25(config-route-map)#set ip default next-hop 109.126.18.237
 ```
 
 ```
