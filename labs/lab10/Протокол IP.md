@@ -2,7 +2,7 @@
 
 Топология 
 
-![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab10/screenshots/Топология%20в%20draw.io .jpg)
+![](https://github.com/Samsonvl/network-otus/blob/master/labs/lab10/screenshots/Топология%20в%20draw.io%20.jpg)
 
 
 Цель: В данной самостоятельной работе необходимо распланировать адресное пространство Настроить IP на всех активных портах для дальнейшей работы над проектом Адресное пространство должно быть задокументировано
