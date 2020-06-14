@@ -187,241 +187,276 @@ SW29(config-if)#exit
 SW9
 
 ```
-SW9# configure terminal
-SW9(config)# vlan 30
-SW9(config-vlan)# name 30
-SW9(config-vlan)# exit
-SW9(config)# vlan 40
-SW9(config-vlan)# name 40
-SW9(config-vlan)# exit
-SW9(config)#int range e0/0-1
-SW9(config-if-range)#channel-group 1 mode active
-SW9(config-if)#exit
-SW9(config)#int port-channel 1 
-SW9(config-if)#switchport trunk encapsulation dot1q
-SW9(config-if)#switchport mode trunk
-SW9(config-if)#exit
-SW9(config)#port-channel load-balance dst-ip
-SW9(config)#vlan 99
-SW9(config-if)#name Management
-SW9(config-if)#int po1
-SW9(config-if)#switchport trunk native vlan 99
-SW9(config-if)#switchport trunk allowed vlan add 30
-SW9(config-if)#switchport trunk allowed vlan add 40
-SW9(config-if)#exit
-SW9(config)#int e0/2
-SW9(config-if)#switchport mode access
-SW9(config-if)#switchport access vlan 30
-SW9(config-if)#int e0/1
-SW9(config-if)#switchport trunk encapsulation dot1q
-SW9(config-if)#switchport mode trunk
-SW9(config-if)#exit
-SW9(config)#int vlan 30
-SW9(config-if)#ip address 192.168.30.6 255.255.255.0
-SW9(config-if)#no shut
-SW9(config-if)#int vlan 40
-SW9(config-if)#ip address 192.168.40.6 255.255.255.0
-SW9(config-if)#no shut
+
+vlan 30
+	name 30
+	exit
+vlan 40
+	name 40
+	exit
+vlan 88
+	name 88
+	exit
+int range e0/0-1
+	channel-group 1 mode active
+	exit
+int port-channel 1 
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	exit
+port-channel load-balance dst-ip
+vlan 99
+	name Management
+int po1
+	switchport trunk native vlan 99
+	switchport trunk allowed vlan add 30,88,40
+	exit
+int e0/2
+	switchport mode access
+	switchport access vlan 30
+int e0/1
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	switchport trunk allowed vlan add 30,88,40
+	exit
+int vlan 30
+	ip address 192.168.30.6 255.255.255.0
+	no shut
+int vlan 40
+	ip address 192.168.40.6 255.255.255.0
+	no shut
+int vlan 88
+	ip address 10.88.88.9 255.255.255.0
+	no shut
 ```
 
 SW10
 
 ```
-SW10# configure terminal
-SW10(config)# vlan 30
-SW10(config-vlan)# name 30
-SW10(config-vlan)# exit
-SW10(config)# vlan 40
-SW10(config-vlan)# name 40
-SW10(config-vlan)# exit
-SW10(config)#int range e0/0-1
-SW10(config-if-range)#channel-group 1 mode active
-SW10(config-if)#exit
-SW10(config)#int port-channel 1 
-SW10(config-if)#switchport encapsulation dot1q
-SW10(config-if)#switchport mode trunk
-SW10(config-if)#exit
-SW10(config)#port-channel load-balance dst-ip
-SW10(config)#vlan 99
-SW10(config-if)#name Management
-SW10(config-if)#int po1
-SW10(config-if)#switchport trunk native vlan 99
-SW10(config-if)#switchport trunk allowed vlan add 40
-SW10(config-if)#switchport trunk allowed vlan add 30
-SW10(config-if)#exit
-SW10(config)#int e0/2
-SW10(config-if)#switchport mode access
-SW10(config-if)#switchport access vlan 40
-SW10(config-if)#int e0/1
-SW10(config-if)#switchport trunk encapsulation dot1q
-SW10(config-if)#switchport mode trunk
-SW10(config-if)#exit
-SW10(config)#int vlan 30
-SW10(config-if)#ip address 192.168.30.5 255.255.255.0
-SW10(config-if)#no shut
-SW10(config-if)#int vlan 40
-SW10(config-if)#ip address 192.168.40.5 255.255.255.0
-SW10(config-if)#no shut
+vlan 30
+	name 30
+	exit
+vlan 40
+	name 40
+	exit
+vlan 88
+	name 88
+	exit
+int range e0/0-1
+	channel-group 1 mode active
+	exit
+int port-channel 1 
+	switchport encapsulation dot1q
+	switchport mode trunk
+	exit
+port-channel load-balance dst-ip
+vlan 99
+	name Management
+int po1
+	switchport trunk native vlan 99
+	switchport trunk allowed vlan add 40,30,88
+	exit
+int e0/2
+	switchport mode access
+	switchport access vlan 40
+int e0/1
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	switchport trunk allowed vlan add 30,88,40
+	exit
+int vlan 30
+	ip address 192.168.30.5 255.255.255.0
+	no shut
+int vlan 40
+	ip address 192.168.40.5 255.255.255.0
+	no shut
+int vlan 88
+	ip address 10.88.88.10 255.255.255.0
+	no shut
 ```
 
 R16
 
 ```
-R16(config)#int e0/2.30
-R16(config-subif)#encapsulation dot1q 30
-R16(config-subif)# ip address 192.168.30.1 255.255.255.0
-R16(config)#int e0/2.40
-R16(config-subif)#encapsulation dot1q 40
-R16(config-subif)# ip address 192.168.40.1 255.255.255.0
+int e0/2.30
+	encapsulation dot1q 30
+	ip address 192.168.30.1 255.255.255.0
+int e0/2.40
+	encapsulation dot1q 40
+	ip address 192.168.40.1 255.255.255.0
+int e0/2.88
+	encapsulation dot1q 88
+	ip address 10.88.88.1 255.255.255.0
 ```
 
 R17
 
 ```
-R17(config)#int e0/2.30
-R17(config-subif)#encapsulation dot1q 30
-R17(config-subif)# ip address 192.168.30.1 255.255.255.0
-R17(config)#int e0/2.40
-R17(config-subif)#encapsulation dot1q 40
-R17(config-subif)# ip address 192.168.40.1 255.255.255.0
+int e0/2.30
+	encapsulation dot1q 30
+	ip address 192.168.30.1 255.255.255.0
+int e0/2.40
+	encapsulation dot1q 40
+	ip address 192.168.40.1 255.255.255.0
+int e0/2.88
+	encapsulation dot1q 88
+	ip address 10.88.88.1 255.255.255.0
 ```
 
 SW2
 
 ```
-SW2(config)#vlan 20
-SW2(config-if)#name 20
-SW2(config-if)#exit
-SW2(config)#int e0/2
-SW2(config-if)#switchport mode access
-SW2(config-if)#switchport access vlan 20
-SW2(config-if)#exit
-SW2(config)#int e0/1
-SW2(config-if)#switchport trunk native vlan 99
-SW2(config-if)#switchport trunk encapsulation dot1q
-SW2(config-if)#switchport mode trunk
-SW2(config-if)#int e0/0
-SW2(config-if)#switchport trunk native vlan 99
-SW2(config-if)#switchport trunk encapsulation dot1q
-SW2(config-if)#switchport mode trunk
-SW2(config-if)#exit
+vlan 20
+	name 20
+	exit
+vlan 77
+	name 77
+	exit
+int e0/2
+	switchport mode access
+	switchport access vlan 20
+	exit
+int e0/1
+	switchport trunk native vlan 99
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+int e0/0
+	switchport trunk native vlan 99
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	exit
+int vlan 77
+	ip address 10.77.77.2 255.255.255.0
 ```
 
 SW3
 
 ```
-SW3(config)#vlan 10
-SW3(config-if)#name 10
-SW3(config-if)#exit
-SW3(config)#int e0/2
-SW3(config-if)#switchport mode access
-SW3(config-if)#switchport access vlan 10
-SW3(config-if)#exit
-SW3(config)#int e0/1
-SW3(config-if)#switchport trunk native vlan 99
-SW3(config-if)#switchport trunk encapsulation dot1q
-SW3(config-if)#switchport mode trunk
-SW3(config-if)#int e0/0
-SW3(config-if)#switchport trunk native vlan 99
-SW3(config-if)#switchport trunk encapsulation dot1q
-SW3(config-if)#switchport mode trunk
-SW3(config-if)#exit
+vlan 10
+	name 10
+vlan 77
+	name 77
+	exit
+int e0/2
+	switchport mode access
+	switchport access vlan 10
+	exit
+int e0/1
+	switchport trunk native vlan 99
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+int e0/0
+	switchport trunk native vlan 99
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	exit
+int vlan 77
+	ip address 10.77.77.3 255.255.255.0 
 ```
 
 SW4
 
 ```
-SW4(config)#int range e0/2-3
-SW4(config-if-range)#channel-group 1 mode active
-SW4(config-if)#exit
-SW4(config)#int port-channel 1 
-SW4(config-if)#switchport trunk encapsulation dot1q
-SW4(config-if)#switchport mode trunk
-SW4(config-if)#exit
-SW4(config)#port-channel load-balance dst-ip
-SW4(config-if)#int po1
-SW4(config-if)#switchport trunk native vlan 99
-SW4(config-if)#switchport trunk allowed vlan add 10
-SW4(config-if)#switchport trunk allowed vlan add 20
-SW4(config-if)#exit
-SW4(config)#int e0/0
-SW4(config-if)#switchport trunk encapsulation dot1q
-SW4(config-if)#switchport mode trunk
-SW4(config-if)#int e0/1
-SW4(config-if)#switchport trunk encapsulation dot1q
-SW4(config-if)#switchport mode trunk
-SW4(config-if)#switchport trunk allowed vlan add 10,20
-SW4(config-if)#exit
-SW4(config)#int vlan 10
-SW4(config-if)#ip address 192.168.10.2 255.255.255.0
-SW4(config-if)#no shut
-SW4(config-if)#int vlan 20
-SW4(config-if)#ip address 192.168.20.2 255.255.255.0
-SW4(config-if)#no shut
-SW4(config-if)#int e1/1
-SW4(config-if)#switchport trunk encapsulation dot1q
-SW4(config-if)#switchport mode trunk
-SW4(config-if)#switchport trunk native vlan 99
-SW4(config-if)#switchport trunk allowed vlan add 10,20
+int range e0/2-3
+	channel-group 1 mode active
+	exit
+int port-channel 1 
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	exit
+port-channel load-balance dst-ip
+int po1
+	switchport trunk native vlan 99
+	switchport trunk allowed vlan add 10,20,77
+	exit
+int e0/0
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+int e0/1
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	switchport trunk allowed vlan add 10,20,77
+	exit
+int vlan 10
+	ip address 192.168.10.2 255.255.255.0
+	no shut
+int vlan 20
+	ip address 192.168.20.2 255.255.255.0
+	no shut
+int vlan 77
+	ip address 10.77.77.4 255.255.255.0
+	no shut
+int e1/1
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	switchport trunk native vlan 99
+	switchport trunk allowed vlan add 10,20,77
 ```
 
 SW5
 
 ```
-SW5(config)#int range e0/2-3
-SW5(config-if)#channel-group 1 mode active
-SW5(config-if)#exit
-SW5(config)#int port-channel 1 
-SW5(config-if)#switchport trunk encapsulation dot1q
-SW5(config-if)#switchport mode trunk
-SW5(config-if)#exit
-SW5(config)#port-channel load-balance dst-ip
-SW5(config-if)#int po1
-SW5(config-if)#switchport trunk native vlan 99
-SW5(config-if)#switchport trunk allowed vlan add 10
-SW5(config-if)#switchport trunk allowed vlan add 20
-SW5(config-if)#exit
-SW5(config)#int e0/0
-SW5(config-if)#switchport trunk encapsulation dot1q
-SW5(config-if)#switchport mode trunk
-SW5(config-if)#int e0/1
-SW5(config-if)#switchport trunk encapsulation dot1q
-SW5(config-if)#switchport mode trunk
-SW5(config-if)#switchport trunk allowed vlan add 10,20
-SW5(config-if)#exit
-SW5(config)#int vlan 10
-SW5(config-if)#ip address 192.168.10.3 255.255.255.0
-SW5(config-if)#no shut
-SW5(config-if)#int vlan 20
-SW5(config-if)#ip address 192.168.20.3 255.255.255.0
-SW5(config-if)#no shut
-SW5(config-if)#int e1/1
-SW5(config-if)#switchport trunk encapsulation dot1q
-SW5(config-if)#switchport mode trunk
-SW5(config-if)#switchport trunk native vlan 99
-SW5(config-if)#switchport trunk allowed vlan add 10,20
+int range e0/2-3
+	channel-group 1 mode active
+	exit
+int port-channel 1 
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	exit
+port-channel load-balance dst-ip
+int po1
+	switchport trunk native vlan 99
+	switchport trunk allowed vlan add 10,20,77
+	exit
+int e0/0
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+int e0/1
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	switchport trunk allowed vlan add 10,20,77
+	exit
+int vlan 10
+	ip address 192.168.10.3 255.255.255.0
+	no shut
+int vlan 20
+	ip address 192.168.20.3 255.255.255.0
+	no shut
+int vlan 77
+	ip address 10.77.77.5 255.255.255.0
+int e1/1
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	switchport trunk native vlan 99
+	switchport trunk allowed vlan add 10,20,77
 ```
 
 R12
 
 ```
-R12(config)#int e0/1.10
-R12(config-subif)#encapsulation dot1q 10
-R12(config-subif)# ip address 192.168.10.1 255.255.255.0
-R12(config)#int e0/1.20
-R12(config-subif)#encapsulation dot1q 20
-R12(config-subif)# ip address 192.168.20.1 255.255.255.0
+int e0/1.10
+	encapsulation dot1q 10
+	ip address 192.168.10.1 255.255.255.0
+int e0/1.20
+	encapsulation dot1q 20
+	ip address 192.168.20.1 255.255.255.0
+int e0/1.77
+	encapsulation dot1q 77
+	ip address 10.77.77.1 255.255.255.0
 ```
 
 R13
 
 ```
-R13(config)#int e0/1.10
-R13(config-subif)#encapsulation dot1q 10
-R13(config-subif)# ip address 192.168.10.1 255.255.255.0
-R13(config)#int e0/1.20
-R13(config-subif)#encapsulation dot1q 20
-R13(config-subif)# ip address 192.168.20.1 255.255.255.0
+int e0/1.10
+	encapsulation dot1q 10
+	ip address 192.168.10.1 255.255.255.0
+int e0/1.20
+	encapsulation dot1q 20
+	ip address 192.168.20.1 255.255.255.0
+int e0/1.77
+	encapsulation dot1q 77
+	ip address 10.77.77.1 255.255.255.0
 ```
 
 
